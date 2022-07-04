@@ -40,13 +40,13 @@
     }
     ```
   - ②compile
-    - cmd(명령 프롬프트)
-    - javac Hello.java  
+    - cmd(명령 프롬프트) javac Hello.java  
   - ③출력
-    - cmd(명령 프롬프트)
-    - java Hello
+    - cmd(명령 프롬프트) java Hello
   - *주의사항
-vscode ----------> *.java --------->*.class
-       저장(UTF-8)         compile
-                           -Windows:OS의 기본 문자집합인 MS949로 저장되었다고 간주하기 때문에 한글입력시 오류발생시 -> >javac -encoding UTF-8 *.java
-                           -UNIX:UTF-8로 저장되었다고 간주
+    - vscode -> *.java(compile) 
+      - 저장(UTF-8)
+    -  *.java -> *.class                     
+     - Windows:OS의 기본 문자집합인 MS949로 저장되었다고 간주하기 때문에 한글입력시 오류발생시 
+       - java encoding UTF-8 *.java
+     - UNIX:UTF-8로 저장되었다고 간주
