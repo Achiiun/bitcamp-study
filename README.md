@@ -32,17 +32,18 @@
 
 - 4."Hello" 출력해보기
   - ①VSCode 작성
-     // 컴파일 테스트    
+     ``` java // 컴파일 테스트    
      class Hello {
       public static void main(String[] args){
         System.out.println("Hello!");
       }
-}
+    }
+    ```
   - ②compile
-    - *cmd(명령 프롬프트)
+    - cmd(명령 프롬프트)
     - javac Hello.java  
   - ③출력
-    - *cmd(명령 프롬프트)
+    - cmd(명령 프롬프트)
     - java Hello
   - *주의사항
 vscode ----------> *.java --------->*.class
