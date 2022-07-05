@@ -1,7 +1,7 @@
 package com.eomcs.lang.ex01;
 
-//# 클래스 이름과 소스 파일 이름 I
-//- 공개 클래스의 경우 소스 파일명이 클래스 이름과 같아야 한다. 다르면 컴파일 오류가 발생한다.
+//# 클래스 이름(.class) 과 소스 파일 이름(.java) I
+//- 공개 클래스(public)의 경우 소스 파일명이 클래스 이름과 같아야 한다. 다르면 컴파일 오류가 발생한다.
 //- 비공개 클래스의 경우 클래스명과 소스 파일명이 일치하지 않아도 된다.
 //
 //## 클래스 접근 제어
@@ -22,7 +22,7 @@ class Exam2_1x {}
 
 //## 실습
 //1) 컴파일하기
-//- $ javac -d bin/main -encoding UTF-8 src/main/java/com/eomcs/basic/ex01/Exam2_1.java
+//- $ javac -d bin/main -encoding UTF-8 src/main/java/com/eomcs/lang/ex01/Exam2_1.java
 //
 //2) 생성된 클래스 파일 확인하기
-//- bin/main/com/eomcs/basic/ex01 디렉토리에 Exam2_1x.class가 생성된다.
+//- bin/main/com/eomcs/lang/ex01 디렉토리에 Exam2_1x.class가 생성된다.
