@@ -19,7 +19,7 @@ public class App {
       System.out.println("  1: 게시글 목록");
       System.out.println("  2: 게시글 상세보기");
       System.out.println();
-      System.out.print("메뉴를 선택하세요[1..2](0: 종료) ");
+      System.out.print("메뉴를 선택하세요[1..2](0: 종료)");
 
       int menuNo = keyboardInput.nextInt();
       keyboardInput.nextLine(); //입력한 숫자 뒤에 남아있는 줄바꿈 코드를 제거
@@ -37,22 +37,11 @@ public class App {
         System.out.print("홍길동\t");
         System.out.print("2022-07-08\r\n");
 
-        System.out.print(
-          2 + "\t" + "제목입니다2\t" + 11 + "\t" + "홍길동\t" + "2022-07-08\n"
-        );
+        System.out.print(2 + "\t" + "제목입니다2\t" + 11 + "\t" + "홍길동\t" + "2022-07-08\n");
 
-        System.out.println(
-          3 + "\t제목입니다3\t" + 31 + "\t" + "홍길동\t2022-07-08"
-        );
+        System.out.println(3 + "\t제목입니다3\t" + 31 + "\t" + "홍길동\t2022-07-08");
 
-        System.out.printf(
-          "%d\t%s\t%d\t%s\t%s\n",
-          4,
-          "제목입니다4",
-          41,
-          "홍길동",
-          "2022-07-08"
-        );
+        System.out.printf("%d\t%s\t%d\t%s\t%s\n",4,"제목입니다4",41,"홍길동","2022-07-08");
       } else if (menuNo == 2) {
         System.out.println("[게시판 상세보기]");
 
