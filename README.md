@@ -84,7 +84,7 @@
   - 클래스 사용법
     - 역할에 따라 메서드를 분류하기
     - 필요에 따라 메서드 추가하기: inputInt(), inputString();
-- 2. Eclipse IDE 설치
+- 2.Eclipse IDE 설치
   - 다운로드 및 설치, 설정
   - 프로젝트 임포트
   - Gradle로 이클립스 설정 파일을 만드는 방법
