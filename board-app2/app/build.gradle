@@ -26,7 +26,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'com.bitcamp.game.App'
+    mainClass = 'com.bitcamp.board.App'
 }
 // 자바 소스를 컴파일 할 때 적용할 옵션
 tasks.withType(JavaCompile) {
