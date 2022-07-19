@@ -2,14 +2,14 @@ package com.eomcs.oop.ex01;
 
 // # 클래스 사용 : 4) 메서드 활용
 //
-public class Exam0113 {
+public class Exam0121 {
 
   // 여러 메서드에서 클래스를 사용한다면
   // 이렇게 메서드 밖에 선언해야 한다.
   // => static 메서드에서 사용할 수 있게 클래스도 static으로 선언한다.
   static class Score {
     String name;
-    int kor;    
+    int kor;
     int eng;
     int math;
     int sum;
@@ -30,21 +30,17 @@ public class Exam0113 {
     printScore(s);
 
     Score s2 = new Score();
-
-    s2.name = "임꺽정";
+    s2.name = "임꺾정";
     s2.kor = 90;
     s2.eng = 80;
     s2.math = 70;
-
     printScore(s2);
 
     Score s3 = new Score();
-
-    s3.name = "임꺽정";
+    s3.name = "유관순";
     s3.kor = 80;
     s3.eng = 70;
     s3.math = 60;
-
     printScore(s3);
   }
 
