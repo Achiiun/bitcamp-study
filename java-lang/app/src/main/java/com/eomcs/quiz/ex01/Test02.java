@@ -5,10 +5,11 @@ package com.eomcs.quiz.ex01;
 // - 1의 개수가 홀수 개이면 1
 // - 1의 개수가 짝수 개이면 0
 // [훈련 목표]
-// - 비교 연산자 및 비트 연산자 활용
+// - 관계 연산자 및 비트 연산자, 비트 이동 연산자 활용
 // - 반복문 활용
 // - 메서드 파라미터 및 리턴 값 다루기
-//
+// [시간 복잡도]
+// - ?
 public class Test02 {
 
   public static void main(String[] args) {
@@ -21,19 +22,8 @@ public class Test02 {
 
   static int parity(int value) {
     int r = 0;
-    int shift = 1 << 31;
-    while (true) {
-      if (shift == 0) {
-        break;
-      }
-      if ((value & shift) == 0) {
-
-      } else {
-        r++;
-      }
-      shift = shift >>> 1;
-    }
-    r = r % 2;
+    // 이 메서드를 완성하시오!
     return r;
   }
+
 }

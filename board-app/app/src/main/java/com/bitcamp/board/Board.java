@@ -6,8 +6,7 @@ public class Board {
   String title;
   String content;
   String writer;
+  String password;
   int viewCount;
   long createdDate;
-  String password;
-
 }
