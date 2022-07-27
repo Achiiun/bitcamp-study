@@ -2,7 +2,25 @@
 package com.eomcs.basic.ex02;
 
 public class Exam0130 {
+
+  static class Member {
+    String name;
+    int age;
+
+    public Member(String n, int a) {
+      name = n;
+      age = a;
+    }
+  }
   public static void main(String[] args) {
+    Member m1 = new Member("aaa",20);
+    Member m2 = new Member("aaa",20);
+
+    System.out.println(m1 == m2);
+
+    System.out.println(m1.hashCode() == m2.hashCode());
+
+    System.out.println("======================");
 
     String s1 = new String("Hello");
     String s2 = new String("Hello");
