@@ -197,8 +197,28 @@
 ### 2022.08.05(Fri)
 - 1.Iterator 패턴과 중첩클래스 사용법
 
-### 2022.08.06(Mon)
+### 2022.08.08(Mon)
 - 1.board-app 프로젝트 수행
   - app-031 데이터 조회 로직을 객체화 하기: Iterator 패턴 적용
   - app-032 기존 List 구현체를 자바 컬렉션 API로 교체하기: java.util 패키지의 클래스 사용
   - app-033 입출력 API를 사용하여 데이터를 파일로 저장하기: 바이너리 저장
+
+### 2022.08.09(Tue)
+- 1.board-app 프로젝트 수행
+  - app-033 입출력 API를 사용하여 데이터를 파일로 저장하기: 바이너리 저장
+  - app-034 Primitive 타입 및 String 타입 데이터를 가공하여 입출력하는 기능을 객체화 하기
+- 2.FileOutputStream/FileInputStream 사용법
+- 3.DataOutputStream/DataInputStream 사용법
+
+### 2022.08.10(Wed)  
+- 1.board-app 프로젝트 수행
+  - app-035 자바에서 제공하는 데코레이터를 사용하기
+  - app-036 인스턴스를 통째로 입출력하기: 객체 직렬화
+  - app-037 인스턴스를 텍스트 형식으로 입출력하기: FileReader/FileWriter
+  - app-038 리팩토링: Factory Method Pattern, Information Expert Pattern
+- 2.ObjectOutputStream/ObjectInputStream 사용법
+
+### 2022.08.11(Thu)
+- 1.board-app 프로젝트 수행
+  - app-039 JSON 형식으로 데이터 입출력하기: Gson 라이브러리 사용
+  - app-040 네트워킹을 이용한 파일 공유: client/server app. 아키텍처로 전환
