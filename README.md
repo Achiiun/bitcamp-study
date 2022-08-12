@@ -221,4 +221,4 @@
 ### 2022.08.11(Thu)
 - 1.board-app 프로젝트 수행
   - app-039 JSON 형식으로 데이터 입출력하기: Gson 라이브러리 사용
-  - app-040 네트워킹을 이용한 파일 공유: client/server app. 아키텍처로 전환
+  - app-040 네트워킹을 이용한 파일 공유: client/server app. 아키텍처로 전환 
