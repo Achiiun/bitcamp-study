@@ -1,13 +1,11 @@
 package com.bitcamp.board.dao;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import com.bitcamp.board.domain.Member;
-import com.google.gson.Gson;
 
 // 회원 목록을 관리하는 역할
 //
@@ -21,27 +19,89 @@ public class MemberDao {
   }
 
   public void load() throws Exception {
-    try (BufferedReader in = new BufferedReader(new FileReader(filename))) {
+    try (FileInputStream in = new FileInputStream(filename)) {
 
-      StringBuilder strBuilder = new StringBuilder();
-      String str;
-      while ((str = in.readLine()) != null) {
-        strBuilder.append(str);
+      int size = (in.read() << 24) + (in.read() << 16) + (in.read() << 8) + in.read();
+
+      for (int i = 0; i < size; i++) {
+        Member member = new Member();
+        member.no = (in.read() << 24) + (in.read() << 16) + (in.read() << 8) + in.read();
+
+        int len = (in.read() << 24) + (in.read() << 16) + (in.read() << 8) + in.read();
+        byte[] bytes = new byte[len];
+        in.read(bytes);
+        member.name = new String(bytes, "UTF-8");
+
+        len = (in.read() << 24) + (in.read() << 16) + (in.read() << 8) + in.read();
+        bytes = new byte[len];
+        in.read(bytes);
+        member.email = new String(bytes, "UTF-8");
+
+        len = (in.read() << 24) + (in.read() << 16) + (in.read() << 8) + in.read();
+        bytes = new byte[len];
+        in.read(bytes);
+        member.password = new String(bytes, "UTF-8");
+
+        member.createdDate = 
+            (((long)in.read()) << 56) + 
+            (((long)in.read()) << 48) +
+            (((long)in.read()) << 40) +
+            (((long)in.read()) << 32) +
+            (((long)in.read()) << 24) +
+            (((long)in.read()) << 16) +
+            (((long)in.read()) << 8) +
+            ((in.read()));
+
+        list.add(member);
       }
-
-      Member[] arr = new Gson().fromJson(strBuilder.toString(), Member[].class);
-
-      for (int i = 0; i < arr.length; i++) {
-        list.add(arr[i]);
-      }
-    } // try() ==> try 블록을 벗어나기 전에 in.close()가 자동으로 실행된다.
+    } // try () ==> try 블록을 벗어나기 전에 in.close()가 자동으로 실행된다.
   }
 
   public void save() throws Exception {
-    try (FileWriter out = new FileWriter(filename)) {
-      Member[] members = list.toArray(new Member[0]);
-      out.write(new Gson().toJson(members));
-    } // try() ==> try 블럭을 벗어나기 전에 out.close()가 자동으로 실행된다.
+    try (FileOutputStream out = new FileOutputStream(filename)) {
+
+      out.write(list.size() >> 24);  
+      out.write(list.size() >> 16);
+      out.write(list.size() >> 8);
+      out.write(list.size());
+
+      for (Member member : list) {
+        out.write(member.no >> 24);  
+        out.write(member.no >> 16);
+        out.write(member.no >> 8);
+        out.write(member.no);
+
+        byte[] bytes = member.name.getBytes("UTF-8"); 
+        out.write(bytes.length >> 24);
+        out.write(bytes.length >> 16);
+        out.write(bytes.length >> 8);
+        out.write(bytes.length);
+        out.write(bytes);
+
+        bytes = member.email.getBytes("UTF-8"); 
+        out.write(bytes.length >> 24);
+        out.write(bytes.length >> 16);
+        out.write(bytes.length >> 8);
+        out.write(bytes.length);
+        out.write(bytes);
+
+        bytes = member.password.getBytes("UTF-8"); 
+        out.write(bytes.length >> 24);
+        out.write(bytes.length >> 16);
+        out.write(bytes.length >> 8);
+        out.write(bytes.length);
+        out.write(bytes);
+
+        out.write((int)(member.createdDate >> 56));
+        out.write((int)(member.createdDate >> 48));
+        out.write((int)(member.createdDate >> 40));
+        out.write((int)(member.createdDate >> 32));
+        out.write((int)(member.createdDate >> 24));
+        out.write((int)(member.createdDate >> 16));
+        out.write((int)(member.createdDate >> 8));
+        out.write((int)(member.createdDate));
+      }
+    } // try () ==> try 블록을 벗어나기 전에 out.close()가 자동으로 실행된다.
   }
 
   public void insert(Member member) {
