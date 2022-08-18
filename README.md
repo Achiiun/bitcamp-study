@@ -229,3 +229,13 @@
 - 2.네트워크 프로그래밍 개요
   - ServerSocket, Socket 클래스 사용법
   - IP 주소와 포트 번호
+
+  ### 2022.08.18(Thu)
+- 1.board-app 프로젝트 수행
+  - app-041 Client/Server 리팩토링
+    - Hashtable, ArrayList 활용
+    - 클라이언트 연결을 순차적으로 처리
+- 2.컬렉션 API사용법
+- 3.프로그램 실행과 경로
+  - 프로그램 실행
+  - shellscript와 기타 script 실행
