@@ -38,7 +38,7 @@ public class BoardServlet implements Servlet {
       String json = null;
 
       switch (command) {
-        case "findAll": 
+        case "findAll":
           Board[] boards = boardDao.findAll();
           out.writeUTF(SUCCESS);
           out.writeUTF(new Gson().toJson(boards));
@@ -60,7 +60,7 @@ public class BoardServlet implements Servlet {
           boardDao.save();
           out.writeUTF(SUCCESS);
           break;
-        case "update":
+        case "update": 
           json = in.readUTF();
           board = new Gson().fromJson(json, Board.class);
           if (boardDao.update(board)) {

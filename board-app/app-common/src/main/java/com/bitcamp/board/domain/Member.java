@@ -11,6 +11,9 @@ public class Member implements Serializable {
   public String password;
   public long createdDate;
 
+  //GoF의 Factory Method 패턴
+  // - 객체 생성 과정이 복잡할 때 별도의 메서드로 캡슐화 한다.
+  // 
   public static Member create(String csv) {
     String[] values = csv.split(",");
 
@@ -25,7 +28,7 @@ public class Member implements Serializable {
   }
 
   // GRASP 패턴의 Information Expert 패턴
-  // => 정보 생성은 그 데이터를 갖고있는 전문가에게 맡긴다.
+  // => 정보 생성은 그 데이터를 갖고 있는 전문가에게 맡긴다.
   public String toCsv() {
     return String.format("%d,%s,%s,%s,%d",
         this.no,
@@ -34,4 +37,12 @@ public class Member implements Serializable {
         this.password,
         this.createdDate);
   }
+
+  @Override
+  public String toString() {
+    return "Member [no=" + no + ", name=" + name + ", email=" + email + ", password=" + password
+        + ", createdDate=" + createdDate + "]";
+  }
+
+
 }
