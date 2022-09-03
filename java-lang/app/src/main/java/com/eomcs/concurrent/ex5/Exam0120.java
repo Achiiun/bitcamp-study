@@ -22,7 +22,7 @@ public class Exam0120 {
     //    - 크리티컬 섹션 구간에 이 키워드를 붙이면 오직 한 번에 한 개의 스레드만이 접근할 수 있다.
     //    - 먼저 접근한 스레드가 나가야만 다음 스레드가 진입할 수 있다.
     //    - 즉 크리티컬 섹션을 뮤텍스 구간으로 설정한다.
-    // 
+    //
     synchronized public void add(int value) {
       if (size >= values.length) {
         delay();
@@ -42,7 +42,10 @@ public class Exam0120 {
     }
 
     public void delay() {
-
+      int count = (int)(Math.random() * 1000);
+      for (int i = 0; i < count; i++) {
+        Math.atan(34.1234);
+      }
     }
   }
 

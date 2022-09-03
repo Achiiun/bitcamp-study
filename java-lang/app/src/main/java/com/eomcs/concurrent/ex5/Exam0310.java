@@ -15,7 +15,7 @@ public class Exam0310 {
   static void print1(String threadName, Counter counter) {
     System.out.printf("[%s] 출력 시작 ----------\n", threadName);
 
-    for (int i  = 0; i < counter.value; i++) {
+    for (int i= 0; i < counter.value; i++) {
       System.out.printf("%s ==> %d\n", threadName, i);
     }
 
@@ -67,7 +67,7 @@ public class Exam0310 {
     Counter counter = new Counter(1000);
 
     Worker w1 = new Worker("**홍길동", counter);
-    Worker w2 = new Worker("임꺽정--->", counter);
+    Worker w2 = new Worker("임꺽정---->", counter);
     Worker w3 = new Worker("유%관%순", counter);
 
     w1.start();

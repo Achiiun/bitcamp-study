@@ -1,14 +1,14 @@
 // 1) 스레드 사용 전
-// 2) 스레드 사용 후 => 패키지 맴버 클래스로 스레드 구현하기
+// 2) 스레드 사용 후 => 패키지 멤버 클래스로 스레드 구현하기
 // 3) 인스턴스 생성 후 즉시 메서드 호출하기
-// 4) 패키지 멤버를 static nested class(스태틱 중첩 클래스)로 만든다.
+// 4) 패키지 멤버를 스태틱 중첩 클래스로 만든다.
 // 5) 스태틱 중첩 클래스를 로컬 클래스로 만든다.
 package com.eomcs.concurrent;
 
 public class Exam0150 {
-  public static void main(String[] args) {
 
-    class MyThread extends Thread{
+  public static void main(String[] args) {
+    class MyThread extends Thread {
 
       int count;
 
@@ -32,6 +32,7 @@ public class Exam0150 {
       System.out.println(">>> " + i);
     }
   }
+
+
+
 }
-
-

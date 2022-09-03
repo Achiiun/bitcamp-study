@@ -1,4 +1,4 @@
-// 통신 방식 - Stateful + 여러 클라이언트 요청 처리 + 서버 종료  로컬에서만 가능 
+// 통신 방식 - Stateful + 여러 클라이언트 요청 처리 + 서버 종료 + 로컬에서만 가능
 package com.eomcs.net.ex04;
 
 import java.io.BufferedReader;
@@ -23,6 +23,7 @@ public class Server0140 {
             PrintWriter out = new PrintWriter(socket.getOutputStream())) {
 
           System.out.println("클라이언트가 연결되었음!");
+
           // 접속한 클라이언트의 IP 주소 알아내기
           InetAddress inetAddr = socket.getInetAddress();
           System.out.printf("접속자: %s\n", inetAddr.getHostAddress());

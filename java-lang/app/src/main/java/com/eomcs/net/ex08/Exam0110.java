@@ -21,7 +21,6 @@ public class Exam0110 {
     InputStream in = url.openStream();
 
     // => 서버가 보낸 데이터를 한 줄씩 읽기 위해 데코레이터를 붙인다.
-    // InputStreamReader: byte stream -> character stream으로 변경하는 데코레이 
     BufferedReader in2 = new BufferedReader(new InputStreamReader(in));
 
     while (true) {

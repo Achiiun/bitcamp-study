@@ -1,6 +1,6 @@
 package com.eomcs.concurrent;
 
-public class MyThread extends Thread{
+public class MyThread extends Thread {
 
   int count;
 

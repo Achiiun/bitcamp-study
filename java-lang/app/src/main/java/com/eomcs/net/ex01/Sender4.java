@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Sender4 {
 
   public static void main(String[] args) throws Exception {
-    File file = new File("temp/tete.jpg");
+    File file = new File("temp/jls18.pdf");
 
     FileInputStream fileIn = new FileInputStream(file);
 
