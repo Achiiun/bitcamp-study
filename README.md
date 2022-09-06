@@ -324,3 +324,16 @@
   - 논리 모델링 및 물리 모델링
   - 포워드 엔지니어링을 통해 DDL 생성 및 테이블 생성
   
+### 2022.09.05(Mon)
+- 1.JDBC 프로그래밍
+  - DBMS Native API 와 ODBC API 개념
+  - JDBC Driver Type
+  - JDBC 프로그래밍 절차
+  - Driver 구현체 생성 및 DrvierManager에 등록하는 방법
+  - DBMS에 연결하는 방법
+
+### 2022.09.06(Tue)
+- 1.JDBC 프로그래밍
+  - Insert/Update/Delete, Select 를 다루는 방법
+  - SQL 삽입 공격을 막는 방법: Statement와 PreparedStatement
+  - transaction 다루기
