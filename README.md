@@ -337,3 +337,7 @@
   - Insert/Update/Delete, Select 를 다루는 방법
   - SQL 삽입 공격을 막는 방법: Statement와 PreparedStatement
   - transaction 다루기
+
+### 2022.09.07(Wed)
+- 1.board-app
+  - DBMS 도입하기
