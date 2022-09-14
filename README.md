@@ -341,3 +341,15 @@
 ### 2022.09.07(Wed)
 - 1.board-app
   - DBMS 도입하기
+
+### 2022.09.08(Thu)
+- 1.board-app 프로젝트 수행
+  - Connection 객체 공유하기
+  - Connection 객체 공유하기 II - 의존 객체 주입 방식
+  - DAO 객체를 교체하기 쉽게 만들기 - 의존 객체 주입과 인터페이스
+  - 트랜잭션 다루기 - 자동 커밋과 수동 커밋
+
+### 2022.09.13(Tue)
+- 1.board-app 프로젝트 수행
+  - Application Server 구조로 전환하기
+  
