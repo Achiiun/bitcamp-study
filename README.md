@@ -353,3 +353,18 @@
 - 1.board-app 프로젝트 수행
   - Application Server 구조로 전환하기
   
+### 2022.09.14(Wed)
+- 1.board-app 프로젝트 수행
+  - Application Server 구조로 전환하기(게속)
+
+### 2022.09.15(Thu)
+- 1.board-app 프로젝트 수행
+  - Web Application Server 구조로 전환하기 - 웹 기술 도입
+
+### 2022.09.16(Fri)
+- 1.board-app 프로젝트 수행
+  - Web Application Server 구조로 전환하기 - 웹 기술 도입(계속)
+  - 명령 처리 부분에 Command Pattern 적용하기
+  - Command 객체의 사용법 통일하기 - 인터페이스 활용
+  - 애노테이션과 리플렉션 API를 활용하여 커맨드 객체 자동 생성하기
+  
