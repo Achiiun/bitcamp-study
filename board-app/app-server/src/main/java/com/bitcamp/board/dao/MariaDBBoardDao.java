@@ -31,11 +31,14 @@ public class MariaDBBoardDao implements BoardDao {
   public Board findByNo(int no) throws Exception {
     try (PreparedStatement pstmt = con.prepareStatement(
         "select bno,title,cont,mno,cdt,vw_cnt from app_board where bno=" + no);
-        ResultSet rs = pstmt.executeQuery()) {
+        PreparedStatement pstmt2 = con.prepareStatement(
+            "update app_board set vw_cnt = vw_cnt+1 where bno=" + no);
+        ResultSet rs = pstmt.executeQuery();
+        ResultSet rs2 = pstmt2.executeQuery()) {
 
       if (!rs.next()) {
         return null;
-      }
+      } 
 
       Board board = new Board();
       board.no = rs.getInt("bno");
@@ -44,6 +47,7 @@ public class MariaDBBoardDao implements BoardDao {
       board.memberNo = rs.getInt("mno");
       board.createdDate = rs.getDate("cdt");
       board.viewCount = rs.getInt("vw_cnt");
+
 
       return board;
     }
