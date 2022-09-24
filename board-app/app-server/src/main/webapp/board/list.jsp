@@ -8,7 +8,7 @@
 <%! 
   BoardDao boardDao;
 
-  public void init() throws ServletException {
+  public void jspInit() {
     boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
   }
 %>
@@ -59,7 +59,7 @@ try {
 <%
 }
 %>
-  <p><a href='/app/welcome'>메인</a></p> 
+  <p><a href='/app'>메인</a></p> 
   </body> 
 </html>
 

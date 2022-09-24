@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+<%@ page import="com.bitcamp.board.dao.MemberDao"%>
 
-<%@ page import="com.bitcamp.board.dao.BoardDao"%>
-
-<%!
-  BoardDao boardDao;
+<%!MemberDao memberDao;
 
   public void jspInit() {
-    boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
-  }
-%>
-<%
-try {
-%>
+    memberDao = (MemberDao) this.getServletContext().getAttribute("memberDao");
+  }%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,17 +17,17 @@ try {
 <meta http-equiv='Refresh' content='1; url=list'>
 </head>
 <body>
-  <h1>게시글 삭제-JSP</h1>
+  <h1>회원 삭제-JSP</h1>
   <%
   int no = Integer.parseInt(request.getParameter("no"));
-
-  if (boardDao.delete(no) == 0) {
+  try {
+    if (memberDao.delete(no) == 0) {
   %>
-  <p>해당 번호의 게시글이 없습니다.</p>
+  <p>해당 번호의 회원이 없습니다.</p>
   <%
   } else {
   %>
-  <p>해당 게시글을 삭제했습니다.</p>
+  <p>해당 회원을 삭제했습니다.</p>
   <%
   }
   } catch (Exception e) {
@@ -40,5 +36,6 @@ try {
   <%
   }
   %>
+
 </body>
 </html>
