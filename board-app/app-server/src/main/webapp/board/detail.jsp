@@ -31,7 +31,7 @@
       </tr>
       <tr>
         <th>작성자</th>
-        <td>${requestScope.board.memberNo}</td>
+        <td>${requestScope.board.writer.name}</td>
       </tr>
       <tr>
         <th>등록일</th>
