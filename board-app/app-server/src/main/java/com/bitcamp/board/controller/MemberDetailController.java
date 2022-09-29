@@ -25,20 +25,26 @@ public class MemberDetailController extends HttpServlet {
       throws ServletException, IOException {
     try {
       int no = Integer.parseInt(request.getParameter("no"));
-
       Member member = memberDao.findByNo(no);
+
       if (member == null) {
-        throw new Exception("회원 등록 실패!");
+        throw new Exception("해당 번호의 회원이 없습니다.");
       }
+
       request.setAttribute("member", member);
 
-      response.setContentType("text/html;charset=UTF-8"); 
-      request.getRequestDispatcher("/member/detail.jsp").include(request, response); 
+      response.setContentType("text/html;charset=UTF-8");
+      request.getRequestDispatcher("/member/detail.jsp").include(request, response);
 
     } catch (Exception e) {
       request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error.jsp").forward(request, response);
+      request.getRequestDispatcher("/error.jsp").forward(request, response); 
     }
   }
-
 }
+
+
+
+
+
+

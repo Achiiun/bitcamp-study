@@ -16,15 +16,20 @@ public class LogoutController extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     try {
-      HttpSession session = request.getSession(); 
-      session.invalidate();
+      HttpSession session = request.getSession();
+      session.invalidate(); // 현재 세션을 무효화시킨다.
 
       response.sendRedirect("../"); // 로그아웃 한 후 메인 페이지를 요청하라고 응답한다.
 
     } catch (Exception e) {
       request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error.jsp").forward(request, response);
+      request.getRequestDispatcher("/error.jsp").forward(request, response); 
     }
   }
-
 }
+
+
+
+
+
+

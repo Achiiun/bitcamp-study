@@ -21,24 +21,30 @@ public class MemberAddController extends HttpServlet {
   }
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     try {
+      request.setCharacterEncoding("UTF-8");
       Member member = new Member();
       member.setName(request.getParameter("name"));
       member.setEmail(request.getParameter("email"));
       member.setPassword(request.getParameter("password"));
 
       if (memberDao.insert(member) == 0) {
-        throw new Exception("게시글 등록 실패!");
+        throw new Exception("회원 등록 오류입니다!");
       }
 
       response.sendRedirect("list");
 
     } catch (Exception e) {
       request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error.jsp").forward(request, response);
+      request.getRequestDispatcher("/error.jsp").forward(request, response); 
     }
   }
-
 }
+
+
+
+
+
+

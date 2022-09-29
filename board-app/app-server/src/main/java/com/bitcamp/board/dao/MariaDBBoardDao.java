@@ -31,25 +31,22 @@ public class MariaDBBoardDao implements BoardDao {
   @Override
   public Board findByNo(int no) throws Exception {
     try (PreparedStatement pstmt = con.prepareStatement(
-        "select"
+        "select "
             + "   b.bno,"
             + "   b.title,"
             + "   b.cont,"
             + "   b.cdt,"
             + "   b.vw_cnt,"
             + "   m.mno,"
-            + "   m.name "
+            + "   m.name"
             + " from app_board b"
-            + "   join app_member m on b.mno = m.mno "
+            + "   join app_member m on b.mno = m.mno"
             + " where b.bno=" + no);
-        PreparedStatement pstmt2 = con.prepareStatement(
-            "update app_board set vw_cnt = vw_cnt+1 where bno=" + no);
-        ResultSet rs = pstmt.executeQuery();
-        ResultSet rs2 = pstmt2.executeQuery()) {
+        ResultSet rs = pstmt.executeQuery()) {
 
       if (!rs.next()) {
         return null;
-      } 
+      }
 
       Board board = new Board();
       board.setNo(rs.getInt("bno"));
@@ -93,19 +90,18 @@ public class MariaDBBoardDao implements BoardDao {
   @Override
   public List<Board> findAll() throws Exception {
     try (PreparedStatement pstmt = con.prepareStatement(
-        "select"
+        "select "
             + "   b.bno,"
             + "   b.title,"
             + "   b.cdt,"
             + "   b.vw_cnt,"
             + "   m.mno,"
-            + "   m.name "
+            + "   m.name"
             + " from app_board b"
-            + "   join app_member m on b.mno = m.mno");
+            + "   join app_member m on b.mno = m.mno"
+            + " order by bno desc");
         ResultSet rs = pstmt.executeQuery()) {
-      /*
 
-       */
       ArrayList<Board> list = new ArrayList<>();
 
       while (rs.next()) {

@@ -43,11 +43,16 @@ public class BoardListController extends HttpServlet {
       // JSP를 실행하기 전에 ServletRequest 보관소에 오류 정보를 담는다.
       req.setAttribute("exception", e);
 
-      // forward():
+      // forward(): 
       // - 예외가 발생하면 기존의 출력 내용을 모두 버린다.
       // - JSP에게 처음부터 새로 출력하게 전권을 위임한다.
       요청배달자.forward(req, resp); // JSP를 실행한 후 리턴된다.
     }
   }
-
 }
+
+
+
+
+
+

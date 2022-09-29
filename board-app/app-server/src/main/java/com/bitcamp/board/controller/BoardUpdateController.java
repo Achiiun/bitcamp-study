@@ -22,9 +22,10 @@ public class BoardUpdateController extends HttpServlet {
   }
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     try {
+      request.setCharacterEncoding("UTF-8");
       Board board = new Board();
       board.setNo(Integer.parseInt(request.getParameter("no")));
       board.setTitle(request.getParameter("title"));
@@ -36,18 +37,20 @@ public class BoardUpdateController extends HttpServlet {
       }
 
       if (boardDao.update(board) == 0) {
-        throw new Exception("게시글 등록 실패!");
+        throw new Exception("게시글 변경 실패!");
       }
 
-      // 자바 코드:
-      response.setHeader("Refresh", "1;url=list");
-      response.setContentType("text/html;charset=UTF-8"); 
-      request.getRequestDispatcher("/board/update.jsp").include(request, response); 
+      response.sendRedirect("list");
 
     } catch (Exception e) {
       request.setAttribute("exception", e);
       request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
   }
-
 }
+
+
+
+
+
+

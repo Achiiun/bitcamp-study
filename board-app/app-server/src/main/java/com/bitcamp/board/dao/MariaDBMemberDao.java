@@ -101,7 +101,7 @@ public class MariaDBMemberDao implements MemberDao {
   @Override
   public List<Member> findAll() throws Exception {
     try (PreparedStatement pstmt = con.prepareStatement(
-        "select mno,name,email from app_member");
+        "select mno,name,email from app_member order by name");
         ResultSet rs = pstmt.executeQuery()) {
 
       ArrayList<Member> list = new ArrayList<>();
@@ -122,12 +122,12 @@ public class MariaDBMemberDao implements MemberDao {
   @Override
   public Member findByEmailPassword(String email, String password) throws Exception {
     try (PreparedStatement pstmt = con.prepareStatement(
-        "select mno,name,email,cdt from app_member where email=? and pwd=sha2(?, 256)")) {
+        "select mno,name,email,cdt from app_member where email=? and pwd=sha2(?,256)")) {
 
       pstmt.setString(1, email);
       pstmt.setString(2, password);
 
-      try(ResultSet rs = pstmt.executeQuery()) {
+      try (ResultSet rs = pstmt.executeQuery()) {
         if (!rs.next()) {
           return null;
         }

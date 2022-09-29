@@ -23,7 +23,7 @@ public class LoginController extends HttpServlet {
   }
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     try {
       String email = request.getParameter("email");
@@ -33,7 +33,7 @@ public class LoginController extends HttpServlet {
 
       if (member != null) {
         HttpSession session = request.getSession(); // 요청한 클라이언트의 전용 HttpSession 보관소를 얻는다.
-        session.setAttribute("loginMember",member); // 로그인한 세션 정보를 맴버 정보에 담는다.
+        session.setAttribute("loginMember", member); // 로그인한 멤버 정보를 세션 보관소에 저장
       }
 
       // 클라이언트에게 쿠키 보내기
@@ -43,21 +43,26 @@ public class LoginController extends HttpServlet {
         cookie.setMaxAge(0); // 클라이언트에게 해당 이름의 쿠키를 지우라고 명령한다.
       } else {
         // 쿠키의 지속시간을 설정하지 않으면 웹브라우저가 실행되는 동안만 유효하다.
-        // 만약 웹 브라우저를 종료하더라도 쿠키를 유지하고 싶다면,
-        // 지속시간을 설정해야 한다.
+        // 만약 웹브라우저를 종료하더라도 쿠키를 유지하고 싶다면,
+        // 지속 시간을 설정해야 한다.
         cookie.setMaxAge(60 * 60 * 24 * 7); // 7일
       }
       response.addCookie(cookie); // 응답 헤더에 쿠키를 포함시킨다.
 
       request.setAttribute("member", member);
 
-      response.setContentType("text/html;charset=UTF-8"); 
-      request.getRequestDispatcher("/auth/loginResult.jsp").include(request, response); 
+      response.setContentType("text/html;charset=UTF-8");
+      request.getRequestDispatcher("/auth/loginResult.jsp").include(request, response);
 
     } catch (Exception e) {
       request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error.jsp").forward(request, response);
+      request.getRequestDispatcher("/error.jsp").forward(request, response); 
     }
   }
-
 }
+
+
+
+
+
+
