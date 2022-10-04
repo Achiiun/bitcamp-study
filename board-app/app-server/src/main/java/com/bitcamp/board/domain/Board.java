@@ -16,8 +16,6 @@ public class Board {
   // 첨부파일 정보를 저장할 필드
   private List<AttachedFile> attachedFiles;
 
-
-
   @Override
   public String toString() {
     return "Board [no=" + no + ", title=" + title + ", content=" + content + ", password="

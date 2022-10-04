@@ -443,3 +443,10 @@
 - 2.board-app 프로젝트 수행
   - 파일을 업로드하기: multipart/form-data MIME 타입
   
+### 2022.10.04(Tue)
+- 1.서블릿 프로그래밍
+  - Servlet 3.0에 추가된 API를 사용하여 파일 업로드를 처리하는 방법
+- 2.board-app 프로젝트 수행
+  - 파일을 업로드하기: multipart/form-data MIME 타입(계속)
+  - 파일을 업로드하기 II: Servlet API로 파일업로드 처리하기
+  
