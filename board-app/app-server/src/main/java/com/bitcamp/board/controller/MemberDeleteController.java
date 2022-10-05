@@ -1,22 +1,24 @@
 package com.bitcamp.board.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.bitcamp.board.dao.MemberDao;
+
+import com.bitcamp.board.service.MemberService;
 
 @WebServlet("/member/delete")
 public class MemberDeleteController extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
-  MemberDao memberDao;
+  MemberService memberService;
 
   @Override
   public void init() {
-    memberDao = (MemberDao) this.getServletContext().getAttribute("memberDao");
+    memberService = (MemberService) this.getServletContext().getAttribute("memberService");
   }
 
   @Override
@@ -25,7 +27,7 @@ public class MemberDeleteController extends HttpServlet {
     try {
       int no = Integer.parseInt(request.getParameter("no"));
 
-      if (memberDao.delete(no) == 0) {
+      if (!memberService.delete(no)) {
         throw new Exception("회원 삭제 오류입니다!");
       }
 
