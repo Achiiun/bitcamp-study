@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -13,15 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-
 import com.bitcamp.board.domain.AttachedFile;
 import com.bitcamp.board.domain.Board;
 import com.bitcamp.board.domain.Member;
 import com.bitcamp.board.service.BoardService;
 
-// Servlet API에서 제공하는 multipart/form-data 처리기를 사용하려면 
-// 서블릿에 다음 애노테이션으로 설정해야 한다.
-@MultipartConfig(maxFileSize = 1024 * 1024 * 10) // 최대 10M까지 업로드 허용
+@MultipartConfig(maxFileSize = 1024 * 1024 * 10) 
 @WebServlet("/board/add")
 public class BoardAddController extends HttpServlet {
   private static final long serialVersionUID = 1L;
@@ -44,9 +40,7 @@ public class BoardAddController extends HttpServlet {
       board.setContent(request.getParameter("content"));
 
       List<AttachedFile> attachedFiles = new ArrayList<>();
-
       String dirPath = this.getServletContext().getRealPath("/board/files");
-
       Collection<Part> parts = request.getParts();
 
       for (Part part : parts) {
@@ -57,13 +51,9 @@ public class BoardAddController extends HttpServlet {
         String filename = UUID.randomUUID().toString();
         part.write(dirPath + "/" + filename);
         attachedFiles.add(new AttachedFile(filename));
-
       }
-
-      // Board 객체에서 파일명 목록을 담고 있는 컬렉션 객체를 저장한다.
       board.setAttachedFiles(attachedFiles);
 
-      // Board 객체에 로그인 사용자 정보를 저장한다.
       Member loginMember = (Member) request.getSession().getAttribute("loginMember");
       board.setWriter(loginMember);
 

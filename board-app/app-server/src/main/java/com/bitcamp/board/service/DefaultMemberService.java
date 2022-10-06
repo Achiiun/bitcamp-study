@@ -1,13 +1,9 @@
 package com.bitcamp.board.service;
 
 import java.util.List;
-
 import com.bitcamp.board.dao.MemberDao;
 import com.bitcamp.board.domain.Member;
 
-// 비즈니스 로직을 수행하는 객체
-// - 메서드의 이름은 업무와 관련된 이름을 사용한다.
-//
 public class DefaultMemberService implements MemberService {
   MemberDao memberDao;
 
@@ -44,5 +40,12 @@ public class DefaultMemberService implements MemberService {
   public List<Member> list() throws Exception {
     return memberDao.findAll();
   }
-
 }
+
+
+
+
+
+
+
+

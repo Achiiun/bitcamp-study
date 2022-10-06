@@ -1,7 +1,6 @@
 package com.bitcamp.board.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -9,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import com.bitcamp.board.domain.Member;
 import com.bitcamp.board.service.MemberService;
 
@@ -34,19 +32,17 @@ public class LoginController extends HttpServlet {
       Member member = memberService.get(email, password);
 
       if (member != null) {
-        HttpSession session = request.getSession(); // 요청한 클라이언트의 전용 HttpSession 보관소를 얻는다.
-        session.setAttribute("loginMember", member); // 로그인한 멤버 정보를 세션 보관소에 저장
+        HttpSession session = request.getSession(); 
+        session.setAttribute("loginMember", member); 
       }
 
-      // 클라이언트에게 쿠키 보내기
-      // - 쿠키 데이터는 문자열만 가능
-      Cookie cookie = new Cookie("email", email); // 클라이언트 쪽에 저장할 쿠키 생성
+      Cookie cookie = new Cookie("email", email); 
       if (request.getParameter("saveEmail") == null) {
         cookie.setMaxAge(0); 
       } else {
-        cookie.setMaxAge(60 * 60 * 24 * 7); 
+        cookie.setMaxAge(60 * 60 * 24 * 7); // 7일
       }
-      response.addCookie(cookie);
+      response.addCookie(cookie); // 응답 헤더에 쿠키를 포함시킨다.
 
       request.setAttribute("member", member);
 

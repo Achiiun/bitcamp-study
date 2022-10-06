@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -13,13 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-
 import com.bitcamp.board.domain.AttachedFile;
 import com.bitcamp.board.domain.Board;
 import com.bitcamp.board.domain.Member;
 import com.bitcamp.board.service.BoardService;
 
-@MultipartConfig(maxFileSize = 1024 * 1024 * 10) // 최대 10M까지 업로드 허용
+@MultipartConfig(maxFileSize = 1024 * 1024 * 10) 
 @WebServlet("/board/update")
 public class BoardUpdateController extends HttpServlet {
   private static final long serialVersionUID = 1L;
@@ -46,7 +44,7 @@ public class BoardUpdateController extends HttpServlet {
       String dirPath = this.getServletContext().getRealPath("/board/files");
       Collection<Part> parts = request.getParts();
       for (Part part : parts) {
-        if (!part.getName().equals("files")|| part.getSize() == 0) continue;
+        if (!part.getName().equals("files") || part.getSize() == 0) continue;
         String filename = UUID.randomUUID().toString();
         part.write(dirPath + "/" + filename);
         attachedFiles.add(new AttachedFile(filename));
@@ -60,7 +58,7 @@ public class BoardUpdateController extends HttpServlet {
       }
 
       if (!boardService.update(board)) {
-        throw new Exception("게시글을 변경할 수 없습니다!!");
+        throw new Exception("게시글을 변경할 수 없습니다!");
       }
 
       response.sendRedirect("list");
