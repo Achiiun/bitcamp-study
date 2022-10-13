@@ -33,7 +33,6 @@ public class ContextLoaderListener implements ServletContextListener {
       AnnotationConfigWebApplicationContext iocContainer = 
           new AnnotationConfigWebApplicationContext();
       iocContainer.register(AppConfig.class);
-      iocContainer.refresh(); // 자바 config 클래스(AppConfig)에 설정된 대로 객체를 생성한다.
 
       ServletContext ctx = sce.getServletContext();
 
@@ -49,22 +48,22 @@ public class ContextLoaderListener implements ServletContextListener {
       CharacterEncodingFilter filter = new CharacterEncodingFilter("UTF-8");
       FilterRegistration.Dynamic filterConfig = ctx.addFilter("CharacterEncodingFilter", filter);
       filterConfig.addMappingForServletNames(
-          EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE),
-          false,
+          EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE), 
+          false, 
           "DispatcherServlet");
 
       AdminCheckFilter adminFilter = new AdminCheckFilter();
       FilterRegistration.Dynamic adminFilterConfig = ctx.addFilter("AdminCheckFilter", adminFilter);
       adminFilterConfig.addMappingForUrlPatterns(
-          EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE),
-          false,
+          EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE), 
+          false, 
           "/service/member/*");
 
       LoginCheckFilter loginFilter = new LoginCheckFilter();
       FilterRegistration.Dynamic loginFilterConfig = ctx.addFilter("LoginCheckFilter", loginFilter);
       loginFilterConfig.addMappingForUrlPatterns(
-          EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE),
-          false,
+          EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE), 
+          false, 
           "/service/*");
 
     } catch (Exception e) {

@@ -475,3 +475,17 @@
   - Spring IoC 컨테이너 사용법
 - 2.board-app 프로젝트 수행
   - Spring IoC 컨테이너 도입하기: 페이지 컨트롤러 생성 자동화
+
+### 2022.10.12(Wed)
+- 1.스프링 프레임워크
+  - Spring IoC 컨테이너 사용법(계속)
+  - Spring Web MVC 프레임워크 사용법(계속)
+- 2.board-app 프로젝트 수행
+  - CRUD를 수행하는 페이지 컨트롤러를 하나로 합치기
+  - Spring Web MVC 프레임워크 사용법
+
+### 2022.10.13(Thu)
+- 1.스프링 프레임워크
+  - Spring Web MVC 프레임워크 사용법(계속)
+- 2.board-app 프로젝트 수행
+  - Spring Web MVC 프레임워크 사용법(계속)
