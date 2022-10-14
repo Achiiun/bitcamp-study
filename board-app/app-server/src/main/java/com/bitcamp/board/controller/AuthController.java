@@ -3,13 +3,11 @@ package com.bitcamp.board.controller;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.bitcamp.board.domain.Member;
 import com.bitcamp.board.service.MemberService;
 
@@ -22,28 +20,18 @@ public class AuthController {
     this.memberService = memberService;
   }
 
-  // InternalREsourceViewResolver 설정 전
-  /*
-  @GetMapping("form") 
-  public View form() throws Exception {
-    return new JstlView("auth/form");
-  }
-   */
-
-  // InternalREsourceViewResolver 설정 후
   @GetMapping("form") 
   public String form() throws Exception {
     return "auth/form";
   }
 
   @PostMapping("login") 
-
   public ModelAndView login(
-      String email,
-      String password,
-      String saveEmail,
-      HttpSession session,
-      HttpServletResponse response) throws Exception {
+      String email, 
+      String password, 
+      String saveEmail, 
+      HttpServletResponse response,
+      HttpSession session) throws Exception {
 
     Member member = memberService.get(email, password);
 
@@ -67,7 +55,7 @@ public class AuthController {
   @GetMapping("logout") 
   public String logout(HttpSession session) throws Exception {
     session.invalidate(); 
-    return "redirect:../../";
+    return "redirect:../../"; 
   }
 }
 

@@ -7,20 +7,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.bitcamp.board.domain.AttachedFile;
 import com.bitcamp.board.domain.Board;
 import com.bitcamp.board.domain.Member;
@@ -30,32 +26,32 @@ import com.bitcamp.board.service.BoardService;
 @RequestMapping("/board/")
 public class BoardController {
 
+  ServletContext sc;
   BoardService boardService;
-  private ServletContext sc;
 
   public BoardController(BoardService boardService, ServletContext sc) {
     this.boardService = boardService;
     this.sc = sc;
   }
-  /*
-   * InternalResourceViewResolver 사용 전
-  @GetMapping("form")
-  public String form() throws Exception {
-    return "board/form";
-  }
-   */
 
-  // InternalResourceViewResolver 사용 후
+  // InternalResourceViewResolver 사용 전:
+  //
+  //  @GetMapping("form")
+  //  public String form() throws Exception {
+  //    return "board/form";
+  //  }
+
+  // InternalResourceViewResolver 사용 후:
   @GetMapping("form")
   public void form() throws Exception {
   }
 
-
   @PostMapping("add") 
   public String add(
       Board board,
-      @RequestParam("files") MultipartFile[] files, 
+      MultipartFile[] files,
       HttpSession session) throws Exception {
+
     board.setAttachedFiles(saveAttachedFiles(files));
     board.setWriter((Member) session.getAttribute("loginMember"));
 

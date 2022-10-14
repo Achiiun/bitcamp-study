@@ -489,3 +489,10 @@
   - Spring Web MVC 프레임워크 사용법(계속)
 - 2.board-app 프로젝트 수행
   - Spring Web MVC 프레임워크 사용법(계속)
+
+### 2022.10.14(Fri)
+- 1.스프링 프레임워크
+  - Spring WebMVC 프레임워크 사용법(계속)
+- 2.board-app 프로젝트 수행
+  - Spring WebMVC 프레임워크 사용법(계속)
+  - Spring WebMVC 프레임워크 사용법 II : 기타 설정
