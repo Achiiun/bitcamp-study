@@ -496,3 +496,10 @@
 - 2.board-app 프로젝트 수행
   - Spring WebMVC 프레임워크 사용법(계속)
   - Spring WebMVC 프레임워크 사용법 II : 기타 설정
+
+### 2022.10.17(Mon)
+- 1.스프링 프레임워크
+  - Spring WebMVC 프레임워크 사용법(계속)
+- 2.board-app 프로젝트 수행
+  - Root IoC 컨테이너와 멀티 프론트 컨트롤러 사용법
+  - Mybatis SQL 매퍼 사용하기: DAO 구현 자동화
